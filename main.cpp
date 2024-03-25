@@ -7,6 +7,7 @@ using std::string;
 float pow(float, int);
 int fatorial(int);
 float progressaoAritmetica(float, float, int);
+int fibonacci(int);
 
 int main() 
 {
@@ -22,6 +23,10 @@ int main()
     cout << fProgredido << endl;
     float fProgredido_2 = progressaoAritmetica(2.5, 2.5, 4);
     cout << fProgredido_2 << endl;
+    int iFibonacci = fibonacci(5);
+    cout << iFibonacci << endl;
+    int iFibonacci_2 = fibonacci(12);
+    cout << iFibonacci_2 << endl;
     return 0;
 }
 
@@ -53,4 +58,20 @@ float progressaoAritmetica(float fInicial, float fRazao, int iTermos)
 {
     float fFinal = fInicial + fRazao * (iTermos - 1);
     return ((fInicial + fFinal) * iTermos) / 2;
+}
+
+int fibonacci(int iTermo)
+{
+    if(iTermo < 3){
+        return 1;
+    }
+    int iRetorno = 1;
+    int iAuxiliar_1 = 1;
+    int iAuxiliar_2 = 1;
+    for(int i = 2; i < iTermo; i++){
+        iAuxiliar_2 = iRetorno;
+        iRetorno = iRetorno + iAuxiliar_1;
+        iAuxiliar_1 = iAuxiliar_2;
+    }
+    return iRetorno;
 }
