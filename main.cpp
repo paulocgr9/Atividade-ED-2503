@@ -4,14 +4,16 @@ using std::cout;
 using std::endl;
 using std::string;
 
-int pow(int, int);
+float pow(float, int);
 int fatorial(int);
 float progressaoAritmetica(float, float, int);
 
 int main() 
 {
-    int iElevado = pow(2, 5);
-    cout <<  iElevado << endl;
+    float fElevado = pow(2, 5);
+    cout <<  fElevado << endl;
+    float fElevado_2 = pow(4.4, 2);
+    cout <<  fElevado_2 << endl;
     int iFatoriado = fatorial(5);
     cout << iFatoriado << endl;
     int iFatoriado_2 = fatorial(0);
@@ -23,14 +25,14 @@ int main()
     return 0;
 }
 
-int pow(int iBase, int iExpoente) 
+float pow(float fBase, int iExpoente) 
 {
-    int iRetorno = iBase;
+    float fRetorno = fBase;
     for (int i = 1; i < iExpoente; i++)
     {
-        iRetorno = iRetorno * iBase;
+        fRetorno = fRetorno * fBase;
     }
-    return iRetorno;
+    return fRetorno;
 }
 
 int fatorial(int iNumero)
