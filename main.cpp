@@ -1,13 +1,16 @@
 #include <iostream>
+#include <cmath>
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
+using std::abs;
 
 float pow(float, int);
 int fatorial(int);
 float progressaoAritmetica(float, float, int);
 int fibonacci(int);
+int numeroDeDigitos(int);
 
 int main() 
 {
@@ -27,6 +30,10 @@ int main()
     cout << iFibonacci << endl;
     int iFibonacci_2 = fibonacci(12);
     cout << iFibonacci_2 << endl;
+    int iNumeroDeDigitos = numeroDeDigitos(696);
+    cout << iNumeroDeDigitos << endl;
+    int iNumeroDeDigitos_2 = numeroDeDigitos(-696969);
+    cout << iNumeroDeDigitos_2 << endl;
     return 0;
 }
 
@@ -62,16 +69,31 @@ float progressaoAritmetica(float fInicial, float fRazao, int iTermos)
 
 int fibonacci(int iTermo)
 {
-    if(iTermo < 3){
+    if(iTermo < 3)
+    {
         return 1;
     }
     int iRetorno = 1;
     int iAuxiliar_1 = 1;
     int iAuxiliar_2 = 1;
-    for(int i = 2; i < iTermo; i++){
+    for(int i = 2; i < iTermo; i++)
+    {
         iAuxiliar_2 = iRetorno;
         iRetorno = iRetorno + iAuxiliar_1;
         iAuxiliar_1 = iAuxiliar_2;
     }
     return iRetorno;
+}
+
+int NumeroDeDigitos(int iNumero)
+{
+    iNumero = abs(iNumero);
+    int iPotencia = -1;
+    int iSubtracao = 0;
+    while (iSubtracao >= 0)
+    {
+        iPotencia++;
+        iSubtracao = iNumero - pow(10, iPotencia);
+    }
+    return iPotencia;
 }
